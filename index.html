@@ -598,6 +598,20 @@ body { overflow-x: clip; }
   .category-strip small { display: none; }
 }
 
+/* =====================================================
+   CORREÇÃO: sem rolagem lateral e margens do cabeçalho
+   ===================================================== */
+html { overflow-x: hidden; max-width: 100%; }
+body { max-width: 100%; }
+
+/* o Bootstrap zerava o espaçamento lateral do cabeçalho; alinha com o resto do conteúdo */
+.site-header .navbar { padding-left: .75rem; padding-right: .75rem; }
+
+/* o espaçamento entre colunas (g-5) passava da borda da tela em telas até 1199px */
+@media (max-width: 1199.98px) {
+  .contact-section .row { --bs-gutter-x: 1.5rem; }
+}
+
 </style>
 </head>
 <body>
