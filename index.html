@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Moda jovem e contemporânea. Conheça camisetas, camisas, shorts e calças.">
   <title>Sua Marca | Estilo em cada detalhe</title>
 
@@ -86,7 +86,7 @@ em { font-style: italic; font-weight: 500; color: var(--gold); }
   /* Troque a URL abaixo pela sua foto principal (ex.: img/hero.jpg) */
   background:
     linear-gradient(90deg, rgba(7,11,16,.86) 0%, rgba(7,11,16,.55) 45%, rgba(7,11,16,.15) 100%),
-    url('img/hero.jpg') center/cover no-repeat,
+    url('https://images.unsplash.com/photo-1613372281199-ec69ace5e926?auto=format&fit=crop&w=1800&q=75') center/cover no-repeat,
     linear-gradient(135deg, #1b1612 0%, #3a2a1a 55%, #6b4a2b 100%);
 }
 .hero-inner { position: relative; padding-top: 4rem; padding-bottom: 4rem; }
@@ -175,7 +175,7 @@ h2 span { color: var(--gold); }
   /* Troque pela sua foto (ex.: img/sobre.jpg) */
   background:
     linear-gradient(180deg, rgba(7,11,16,.15), rgba(7,11,16,.55)),
-    url('img/sobre.jpg') center/cover no-repeat,
+    url('https://images.unsplash.com/photo-1760565030786-91526dff426c?auto=format&fit=crop&w=1400&q=75') center/cover no-repeat,
     linear-gradient(135deg, #3a2a1a 0%, #5a3d22 100%);
 }
 .art-label { font-size: 1.6rem; font-weight: 800; letter-spacing: -.05em; line-height: 1.2; }
@@ -325,7 +325,7 @@ button.btn-gold.w-100, a.btn-gold.w-100 { justify-content: space-between; }
   content: ""; position: absolute; inset: -6% 0; z-index: -1; will-change: transform;
   background:
     linear-gradient(90deg, rgba(7, 11, 16, .86) 0%, rgba(7, 11, 16, .55) 45%, rgba(7, 11, 16, .15) 100%),
-    url('img/hero.jpg') center/cover no-repeat,
+    url('https://images.unsplash.com/photo-1613372281199-ec69ace5e926?auto=format&fit=crop&w=1800&q=75') center/cover no-repeat,
     linear-gradient(135deg, #1b1612 0%, #3a2a1a 55%, #6b4a2b 100%);
   transform: translate3d(0, var(--py, 0px), 0) scale(1.06);
 }
@@ -478,6 +478,126 @@ button.btn-gold.w-100, a.btn-gold.w-100 { justify-content: space-between; }
 .fab-wa:hover { transform: scale(1.1) rotate(-6deg); color: #fff; }
 .fab-wa svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 
+/* =====================================================
+   CELULAR E TABLET — ajustes de responsividade
+   ===================================================== */
+body { overflow-x: clip; }
+
+/* Evita "hover" preso depois de tocar na tela */
+@media (hover: none) {
+  .category-strip a:hover { transform: none; border-color: transparent !important; }
+  .category-strip a:hover::before { opacity: 0; }
+  .product-card:hover .product-img-bg { transform: none; }
+  .contact-item:hover { transform: none; }
+}
+
+/* Tablet e celular: menu */
+@media (max-width: 991.98px) {
+  .menu-toggle {
+    display: grid; place-items: center; width: 46px; height: 46px; padding: 0;
+    border-radius: 50%; font-size: 1.25rem; line-height: 1;
+  }
+  .site-header:has(.navbar-collapse.show) { background: rgba(7, 11, 16, .97); }
+  .site-header .navbar-nav { padding: .4rem 0 .6rem; }
+  .site-header .nav-link {
+    padding: .95rem .25rem; font-size: .98rem; border-bottom: 1px solid rgba(255, 255, 255, .07);
+  }
+  .site-header .nav-link::after { display: none; }
+  .header-cta { width: 100%; justify-content: space-between; margin-bottom: .9rem; padding: 1rem 1.3rem; }
+}
+
+/* Tablet e celular: filtros em linha deslizável */
+@media (max-width: 767.98px) {
+  .products-section { padding: 3.5rem 0 4rem; }
+  .section-heading { flex-direction: column; align-items: flex-start; gap: 1.2rem; margin-bottom: 2rem; }
+  .filter-row {
+    flex-wrap: nowrap; overflow-x: auto; width: calc(100% + 1.5rem); margin: 0 -.75rem;
+    padding: .2rem .75rem; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .filter-row::-webkit-scrollbar { display: none; }
+  .filter { flex: 0 0 auto; min-height: 42px; }
+  .contact-section { padding: 3.2rem 0; }
+  .contact-section .row { --bs-gutter-y: 2rem; }
+  .footer-inner { flex-direction: column; text-align: center; gap: 1.1rem; }
+  .footer .brand { align-items: center; }
+  .modal-img { min-height: 260px; height: 260px; }
+  .modal-body-custom { padding: 1.5rem; }
+}
+
+/* Celular */
+@media (max-width: 575.98px) {
+  .eyebrow { font-size: .72rem; }
+
+  /* topo */
+  .hero { min-height: 520px; }
+  .hero-inner { padding-top: 3rem; padding-bottom: 4.5rem; }
+  .hero-copy { padding-left: 0; }
+  .hero h1 { font-size: clamp(2.4rem, 11.5vw, 3.2rem); }
+  .hero-text { font-size: .95rem; max-width: 300px; }
+  .btn-gold { padding: 1rem 1.4rem; font-size: .74rem; }
+
+  /* categorias */
+  .category-strip { padding: .5rem 0; }
+  .category-strip a { padding: 1.3rem .6rem; }
+  .category-strip b { font-size: .72rem; }
+  .category-strip small { font-size: .74rem; }
+
+  /* produtos em 2 colunas, mais compactos */
+  #product-grid { --bs-gutter-x: .8rem; --bs-gutter-y: 1.6rem; }
+  .product-img { aspect-ratio: 3 / 4; border-radius: 16px; margin-bottom: .9rem; }
+  .product-cat { font-size: .68rem; margin-bottom: .4rem; }
+  .product-name { font-size: .92rem; line-height: 1.3; margin-bottom: .4rem; }
+  .product-price { font-size: .95rem; margin-bottom: .8rem; }
+  .product-specs { display: none; }
+  .btn-details { padding: .8rem 1rem; font-size: .66rem; letter-spacing: .1em; }
+  .badge-tag { top: .6rem; left: .6rem; font-size: .52rem; padding: .35rem .6rem; }
+  .wish { top: .5rem; right: .5rem; width: 36px; height: 36px; }
+  .quick-add { left: .5rem; right: .5rem; bottom: .5rem; padding: .35rem; justify-content: center; gap: .25rem; }
+  .quick-add > span { display: none; }
+  .quick-add button { min-width: 0; flex: 1; height: 34px; font-size: .68rem; }
+
+  /* sobre */
+  .manifesto-art { min-height: 380px; padding: 2.2rem 1.5rem; }
+  .manifesto-art p { font-size: 1.75rem; }
+  .manifesto-copy { padding: 2.8rem 1.5rem 3rem; }
+  .manifesto-copy > p:not(.eyebrow) { font-size: .92rem; }
+  .values { margin-top: 1.8rem; }
+  .values > div { flex: 0 0 100%; max-width: 100%; display: grid; grid-template-columns: 34px 1fr; column-gap: .6rem; align-items: baseline; }
+  .values span { grid-row: 1 / 3; font-size: .75rem; margin: 0; }
+  .values b { font-size: .88rem; margin-bottom: .15rem; }
+  .values small { font-size: .74rem; }
+
+  /* contato */
+  .contact-intro { font-size: .92rem; }
+  .contact-item { padding: 1.2rem 1.1rem; margin-bottom: 1rem; }
+  .contact-item small { font-size: .66rem; }
+  .contact-item a { font-size: .85rem; }
+
+  /* janela de detalhes: ocupa quase a tela toda */
+  .product-modal .modal-dialog { margin: .6rem; max-width: none; }
+  .product-modal .modal-content { border-radius: 22px; }
+  .modal-body-custom h3 { font-size: 1.3rem; }
+  .modal-body-custom p { font-size: .9rem; }
+  .size { height: 44px; min-width: 52px; }
+
+  /* carrinho: tela cheia */
+  .cart-panel { width: 100vw; border-radius: 0; border-left: 0; }
+  .cart-footer { padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)); }
+  .qty button { width: 36px; height: 36px; }
+  .cart-remove { padding: .4rem; }
+
+  /* avisos e botão flutuante sem encostar um no outro */
+  .fab-wa { right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); width: 52px; height: 52px; }
+  .toast-msg { bottom: calc(5.4rem + env(safe-area-inset-bottom, 0px)); font-size: .78rem; width: calc(100vw - 2rem); border-radius: 18px; }
+}
+
+/* Celulares muito estreitos */
+@media (max-width: 359.98px) {
+  .brand-name { font-size: 1.5rem; }
+  .brand small { font-size: .45rem; }
+  .category-strip small { display: none; }
+}
+
 </style>
 </head>
 <body>
@@ -629,7 +749,7 @@ button.btn-gold.w-100, a.btn-gold.w-100 { justify-content: space-between; }
         <small data-brand="tagline">ESTILO EM CADA DETALHE</small>
       </a>
       <p>ESTILO · CONFORTO · PERSONALIDADE</p>
-      <small>© <span id="year"></span> <span data-brand="name">Store</span>. Todos os direitos reservados.</small>
+      <small>© <span id="year"></span> <span data-brand="name">Store</span>. Todos os direitos reservados. Fotos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</small>
     </div>
   </footer>
 
@@ -682,35 +802,35 @@ const CONFIG = {
 const PRODUCTS = [
   { id: 1, category: 'Camisetas', tag: 'Novo tom',  name: 'Camiseta Boxy Off-white', price: 74.90,
     fabric: 'Meia-malha de algodão', feel: 'Natural, leve e respirável', composition: '100% algodão',
-    image: 'img/camiseta1.jpg', tone: ['#d8d2c8', '#8a8174'],
+    image: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=900&q=75', tone: ['#d8d2c8', '#8a8174'],
     description: 'Modelagem ampla com caimento solto e gola reforçada. Ideal para o dia a dia.' },
   { id: 2, category: 'Camisas', tag: 'Leveza', name: 'Camisa Linho Blend', price: 119.90,
     fabric: 'Mistura de algodão e linho', feel: 'Fresco, natural e com textura discreta', composition: '70% algodão / 30% linho',
-    image: 'img/camisa1.jpg', tone: ['#e9b872', '#b87b3a'],
+    image: 'https://images.unsplash.com/photo-1745284505024-1ac4453a67b2?auto=format&fit=crop&w=900&q=75', tone: ['#e9b872', '#b87b3a'],
     description: 'Camisa leve para os dias quentes, do casual ao mais alinhado.' },
   { id: 3, category: 'Shorts', tag: 'Casual', name: 'Shorts Sarja Relax', price: 84.90,
     fabric: 'Sarja de algodão com elastano', feel: 'Toque firme com flexibilidade', composition: '98% algodão / 2% elastano',
-    image: 'img/short1.jpg', tone: ['#9aa0a3', '#4d5356'],
+    image: 'https://images.unsplash.com/photo-1617953644310-e690da9be982?auto=format&fit=crop&w=900&q=75', tone: ['#9aa0a3', '#4d5356'],
     description: 'Corte relaxado com cós ajustável e bolsos laterais.' },
   { id: 4, category: 'Calças', tag: 'Clássico', name: 'Calça Reta Minimal', price: 119.90,
     fabric: 'Sarja leve', feel: 'Suave, estruturado e confortável', composition: '97% algodão / 3% elastano',
-    image: 'img/calca1.jpg', tone: ['#8fb4d9', '#4f7ba8'],
+    image: 'https://images.unsplash.com/photo-1714143136372-ddaf8b606da7?auto=format&fit=crop&w=900&q=75', tone: ['#8fb4d9', '#4f7ba8'],
     description: 'Calça de corte reto, versátil e confortável para qualquer ocasião.' },
   { id: 5, category: 'Camisetas', tag: 'Essencial', name: 'Camiseta Básica Preta', price: 59.90,
     fabric: 'Malha penteada', feel: 'Macio e com ótimo caimento', composition: '100% algodão',
-    image: 'img/camiseta2.jpg', tone: ['#2b2b2b', '#111111'],
+    image: 'https://images.unsplash.com/photo-1790065647534-681685463320?auto=format&fit=crop&w=900&q=75', tone: ['#2b2b2b', '#111111'],
     description: 'O básico que combina com tudo. Costura reforçada e gola que não estica.' },
   { id: 6, category: 'Camisas', tag: 'Social', name: 'Camisa Oxford Azul', price: 129.90,
     fabric: 'Oxford de algodão', feel: 'Estruturado e durável', composition: '100% algodão',
-    image: 'img/camisa2.jpg', tone: ['#9db8d6', '#5f7fa3'],
+    image: 'https://images.unsplash.com/photo-1602810316693-3667c854239a?auto=format&fit=crop&w=900&q=75', tone: ['#9db8d6', '#5f7fa3'],
     description: 'Clássico atemporal com botões e colarinho firme.' },
   { id: 7, category: 'Shorts', tag: 'Verão', name: 'Bermuda Cargo', price: 94.90,
     fabric: 'Sarja leve', feel: 'Resistente e confortável', composition: '100% algodão',
-    image: 'img/short2.jpg', tone: ['#a6a082', '#6b664d'],
+    image: 'https://images.unsplash.com/photo-1621496503717-095a410e1566?auto=format&fit=crop&w=900&q=75', tone: ['#a6a082', '#6b664d'],
     description: 'Bolsos funcionais e modelagem reta para o dia a dia urbano.' },
   { id: 8, category: 'Calças', tag: 'Urbano', name: 'Calça Jogger Preta', price: 129.90,
     fabric: 'Moletom leve', feel: 'Macio e flexível', composition: '80% algodão / 20% poliéster',
-    image: 'img/calca2.jpg', tone: ['#3a3a3a', '#161616'],
+    image: 'https://images.unsplash.com/photo-1542674685-1005e2db517e?auto=format&fit=crop&w=900&q=75', tone: ['#3a3a3a', '#161616'],
     description: 'Punhos elásticos e cintura ajustável para conforto o dia todo.' }
 ];
 
@@ -780,7 +900,7 @@ const filters = $$('.filter');
 function cardHTML(p, i) {
   const fav = wish.has(p.id);
   return `
-    <div class="col-12 col-sm-6 col-lg-3 reveal" style="--d:${(i % 4) * 0.08}s">
+    <div class="col-6 col-md-4 col-lg-3 reveal" style="--d:${(i % 4) * 0.08}s">
       <article class="product-card">
         <div class="product-img">
           <div class="product-img-bg" style="${bg(p)}" data-open="${p.id}"></div>
